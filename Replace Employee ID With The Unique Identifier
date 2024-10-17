@@ -1,0 +1,7 @@
+SELECT CAST(x.unique_id AS INT) AS unique_id, x.name 
+FROM (
+    SELECT a.name, 
+           ISNULL(b.unique_id, null) AS unique_id
+    FROM employees a
+    LEFT JOIN employeeUNI b ON a.id = b.id
+) x;
